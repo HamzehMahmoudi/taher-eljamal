@@ -27,4 +27,4 @@ elif args.type == "decrypt":
             decrypted_message = decrypt_message(key, eval(args.message), args.output)
             print(f"decoded =\n{decrypted_message}")
     else:
-        print("please provide a key")   
+        print("private key required to decrypt the cipher")   

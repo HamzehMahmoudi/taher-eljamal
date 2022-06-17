@@ -5,7 +5,7 @@ from math import gcd
 # generate large prime number
 def generate_prime():
     while(1):
-        p = random.randint(128, 512)
+        p = random.getrandbits(11)
         if p % 2 == 0:
             p = p + 1
         if is_prime(p):
@@ -23,7 +23,7 @@ def is_prime(num):
 def get_generator(p):
     zp = set(num for num in range (1, p) if gcd(num, p) == 1)
     for g in range(1, p):
-        z = set(pow(g, powers) % p for powers in range (1, p))
+        z = set(pow(g, powers, p) for powers in range (1, p))
         if zp == z:
             return g
             
