@@ -1,8 +1,11 @@
-
+# jamal.py
 import random
 from math import gcd
 
 def generate_prime():
+    """
+        generate big prime number 'p'
+    """
     while(1):
         p = random.getrandbits(11)
         if p % 2 == 0:
@@ -18,23 +21,24 @@ def is_prime(num):
             return False
     return True
 
-# get g from p
+
 def get_generator(p):
+    """
+        calculate primitive root of p (generator 'g')
+    """
     zp = set(num for num in range (1, p) if gcd(num, p) == 1)
     for g in range(1, p):
         z = set(pow(g, powers, p) for powers in range (1, p))
         if zp == z:
             return g
-            
-p = generate_prime()
-g = get_generator(p)
-alpha = random.randint(1, p-2)
-# p = 7
-# g = 3
-# alpha = 3
-betha = pow(g, alpha, p)
-PRIVATE_KEY = (p, g, alpha)
-PUBLIC_KEY = (p, g, betha)
+def generate_key():            
+    p = generate_prime()
+    g = get_generator(p)
+    alpha = random.randint(1, p-2)
+    betha = pow(g, alpha, p)
+    PRIVATE_KEY = (p, g, alpha)
+    PUBLIC_KEY = (p, g, betha)
+    return PRIVATE_KEY, PUBLIC_KEY
 
 def encrypt(public_key:tuple, data_block):
     p, g, betha = public_key

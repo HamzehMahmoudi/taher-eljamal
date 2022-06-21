@@ -15,9 +15,9 @@ private key is required for decryption. \
 you can try ``` -m ```to decrypt or encrypt a message. \
 
 ## Issues:
-- Don't try ``` -f ``` and  ```-m ``` together, its just show you an beautifull error. \ 
-- non english charachters are not fully supported. \
-- its too hard and slow to genereate 'g' for big prime numbers. \
+- Don't try ``` -f ``` and  ```-m ``` together, its just show you an beautifull error. 
+- non english charachters are not fully supported. 
+- its too hard and slow to genereate 'g' for big prime numbers. 
 <br>
 
 i will take care of it later ("LATER MEANS NEVER").

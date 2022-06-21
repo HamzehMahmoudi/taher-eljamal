@@ -1,5 +1,5 @@
 import argparse
-from jamal import *
+from jamal import generate_key, encrypt_file, encrypt_message, decrypt_file, decrypt_message
 
 class Bcolors:
     HEADER = '\033[95m'
@@ -19,7 +19,7 @@ parser.add_argument('-f', '--file', help='file to encrypt or decrypt')
 parser.add_argument('-o', '--output', help='output file')
 parser.add_argument('-k', '--key', help='private key for decryption')
 args =parser.parse_args()
-
+PRIVATE_KEY, PUBLIC_KEY = generate_key()
 if args.type == "encrypt":
     if args.message and args.file:
         print("\n")
